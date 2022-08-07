@@ -6,12 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { IMCComponent } from './imc/imc.component';
 import { NgbCollapse, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConvertisseurDeviseComponent } from './convertisseur-devise/convertisseur-devise.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    IMCComponent
+    IMCComponent,
+    ConvertisseurDeviseComponent
   ],
   imports: [
     BrowserModule,
