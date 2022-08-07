@@ -5,22 +5,26 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { IMCComponent } from './imc/imc.component';
 import { NgbCollapse, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConvertisseurDeviseComponent } from './convertisseur-devise/convertisseur-devise.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     IMCComponent,
-    ConvertisseurDeviseComponent
+    ConvertisseurDeviseComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [NgbCollapse],
   bootstrap: [AppComponent]

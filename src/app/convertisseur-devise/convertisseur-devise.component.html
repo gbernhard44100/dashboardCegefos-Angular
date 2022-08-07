@@ -1,1 +1,21 @@
-<p>convertisseur-devise works!</p>
+<div class="container">
+    <div>
+      <h1>Convertisseur de devises</h1>
+      <form [formGroup]="exchangedAmountList">
+        <fieldset>
+          <div class="mb-3">
+            <label for="usdAmount" class="form-label">Somme en &dollar; :</label>
+            <input type="number" step=".01" id="usdAmount" name="usdAmount" formControlName="usdAmount" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="euroAmount" class="form-label">Somme en &euro; :</label>
+            <input type="number" step=".01" id="euroAmount" name="euroAmount" formControlName="euroAmount" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="yenAmount" class="form-label">Somme en &yen; :</label>
+            <input type="number" id="yenAmount" name="yenAmount" formControlName="yenAmount" class="form-control">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+</div>
