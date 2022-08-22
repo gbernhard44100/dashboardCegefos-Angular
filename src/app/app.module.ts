@@ -9,6 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConvertisseurDeviseComponent } from './convertisseur-devise/convertisseur-devise.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { PostListComponent } from './post-list/post-list.component';
+import { postReducer } from './states/post/post.reducer';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +23,10 @@ import { InscriptionComponent } from './inscription/inscription.component';
     HomeComponent,
     IMCComponent,
     ConvertisseurDeviseComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    NewPostComponent,
+    PostComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +35,18 @@ import { InscriptionComponent } from './inscription/inscription.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot(
+      {
+        postList: postReducer
+      },
+      {
+        runtimeChecks: {
+          strictStateImmutability: false,
+          strictActionImmutability: false,
+        }
+      } 
+    ),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [NgbCollapse],
   bootstrap: [AppComponent]

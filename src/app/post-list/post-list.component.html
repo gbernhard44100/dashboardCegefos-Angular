@@ -1,0 +1,4 @@
+<h1>Posts</h1>
+<app-post 
+  *ngFor="let post of postList$ | async; let i = index;" [post]="post" [id]="i"
+></app-post>

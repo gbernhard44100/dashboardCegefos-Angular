@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+  <h1>Nouveau Post :</h1>
+    <form [formGroup]="newPost" (ngSubmit) = "ngOnSubmit()">
+    <fieldset>
+      <div class="mb-3">
+        <label for="title" class="form-label">Titre du post :</label>
+        <input type="text" id="title" name="title" formControlName="title" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Contenu du post :</label>
+        <textarea formControlName="content" class="form-control" id="content" name="content" rows="10">
+        </textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer Post</button>
+    </fieldset>
+    </form>
+  </div>
+</div>
