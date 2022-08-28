@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit {
 
   constructor(private store: Store<{ postList: Array<PostType> }>) {
     this.postList$ = this.store.select('postList');
+    console.log(this.postList$);
   }
 
   ngOnInit(): void {}

@@ -16,6 +16,8 @@ import { environment } from '../environments/environment';
 import { PostListComponent } from './post-list/post-list.component';
 import { postReducer } from './states/post/post.reducer';
 import { PostComponent } from './post/post.component';
+import { LoginComponent } from './login/login.component';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PostComponent } from './post/post.component';
     InscriptionComponent,
     NewPostComponent,
     PostComponent,
-    PostListComponent
+    PostListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,15 +41,11 @@ import { PostComponent } from './post/post.component';
     StoreModule.forRoot(
       {
         postList: postReducer
-      },
-      {
-        runtimeChecks: {
-          strictStateImmutability: false,
-          strictActionImmutability: false,
-        }
       } 
     ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [NgbCollapse],
   bootstrap: [AppComponent]
