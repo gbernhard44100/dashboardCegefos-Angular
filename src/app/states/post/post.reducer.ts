@@ -15,29 +15,35 @@ const initialPostList: Array<PostType> = [{
   created_at: new Date(2020, 4, 1, 15, 45, 30)
 }];
 
-export const postReducer = createReducer(
+const reducer = createReducer(
   initialPostList,
   on(
     createdPost,
     (state, { newPost }) => {
-      console.log(state);
       return state.concat(newPost);
     }
   ),
   on(likedPost, (state, { postId }) => { 
-    state[postId].loveIts++;
-    return state;
+    let newState = [...state];
+    let updatedPost = {...state[postId]};
+    updatedPost.loveIts++;
+    newState[postId]= updatedPost;
+    return newState;
   }),
   on(hatedPost, (state, { postId }) => { 
-    state[postId].loveIts--;
-    return state;
+    let newState = [...state];
+    let updatedPost = {...state[postId]};
+    updatedPost.loveIts--;
+    newState[postId]= updatedPost;
+    return newState;
   }),
   on(deletedPost, (state, { postId }) => { 
-    state.splice(postId, 1);
-    return state;
+    let newState = [...state];
+    newState.splice(postId, 1);
+    return newState;
   })
 );
-/**
+
 export function postReducer(state: Array<PostType> | undefined, action: Action) {
   return reducer(state, action);
-}*/
+}

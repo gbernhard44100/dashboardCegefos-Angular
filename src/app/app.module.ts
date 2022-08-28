@@ -44,8 +44,7 @@ import { EffectsModule } from '@ngrx/effects';
       } 
     ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
   ],
   providers: [NgbCollapse],
   bootstrap: [AppComponent]
