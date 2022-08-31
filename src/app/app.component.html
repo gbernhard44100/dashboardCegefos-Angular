@@ -3,7 +3,7 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Navbar brand -->
-    <a class="navbar-brand me-2" href="/">
+    <a class="navbar-brand me-2" [routerLink]="['/']">
       <strong>CEGEFOS</strong>
     </a>
   
@@ -33,10 +33,13 @@
         </li>
       </ul>
       <div class="d-flex align-items-center">
-        <a type="button" class="btn btn-link px-3 me-2" href="/login">
+        <a type="button" class="btn btn-link px-3 me-2" [routerLink]="['/login']">
           Login
         </a>
-        <a type="button" class="btn btn-primary me-3" href="/inscription">
+        <a type="button" class="btn btn-danger px-3 me-2" [routerLink]="['/logout']">
+          Logout
+        </a>
+        <a type="button" class="btn btn-primary me-3" [routerLink]="['/inscription']">
           Sign up
         </a>
       </div>

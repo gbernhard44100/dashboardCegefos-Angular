@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { submitCredentials } from '../states/login/login.actions';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +15,20 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor() { }
+  constructor(
+    private store: Store,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+    try {
+      this.store.dispatch(submitCredentials(this.authentication.value));
+    } catch (error) {
+      console.log(error)
+      alert('Echec de l\'authentification');
+    }
+  }
 }

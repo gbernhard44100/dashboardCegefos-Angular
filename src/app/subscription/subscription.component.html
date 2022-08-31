@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Inscription</h1>
-  <form [formGroup]="subscription">
+  <form [formGroup]="subscription" (ngSubmit) = "onSubmit()">
     <fieldset>
       <div class="mb-3">
         <label for="lastname" class="form-label">Nom :</label>

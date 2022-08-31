@@ -8,7 +8,7 @@ import { NgbCollapse, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConvertisseurDeviseComponent } from './convertisseur-devise/convertisseur-devise.component';
-import { InscriptionComponent } from './inscription/inscription.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -18,6 +18,9 @@ import { postReducer } from './states/post/post.reducer';
 import { PostComponent } from './post/post.component';
 import { LoginComponent } from './login/login.component';
 import { EffectsModule } from '@ngrx/effects';
+import { loginReducer } from './states/login/login.reducer';
+import { LoginEffects } from './states/login/login.effects';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +28,12 @@ import { EffectsModule } from '@ngrx/effects';
     HomeComponent,
     IMCComponent,
     ConvertisseurDeviseComponent,
-    InscriptionComponent,
+    SubscriptionComponent,
     NewPostComponent,
     PostComponent,
     PostListComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +44,12 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientModule,
     StoreModule.forRoot(
       {
-        postList: postReducer
+        postList: postReducer,
+        loginStatus: loginReducer
       } 
     ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([LoginEffects])
   ],
   providers: [NgbCollapse],
   bootstrap: [AppComponent]
