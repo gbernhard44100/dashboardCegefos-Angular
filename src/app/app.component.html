@@ -20,26 +20,26 @@
           <a ngbNavLink [routerLink]="['/']" (click)="isMenuCollapsed = true"><b>Accueil</b></a>
         </li>
         <li ngbNavItem="imc">
-          <a ngbNavLink [routerLink]="['/imc']" (click)="isMenuCollapsed = true"><b>Calcul IMC</b></a>
+          <a ngbNavLink [routerLink]="['/imc']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Calcul IMC</b></a>
         </li>
         <li ngbNavItem="convertirDevises">
-          <a ngbNavLink [routerLink]="['/convertirDevises']" (click)="isMenuCollapsed = true"><b>Convertir Devises</b></a>
+          <a ngbNavLink [routerLink]="['/convertirDevises']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Convertir Devises</b></a>
         </li>
         <li ngbNavItem="posts">
-          <a ngbNavLink [routerLink]="['/posts']" (click)="isMenuCollapsed = true"><b>Posts</b></a>
+          <a ngbNavLink [routerLink]="['/posts']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Posts</b></a>
         </li>
         <li ngbNavItem="nouveauPost">
-          <a ngbNavLink [routerLink]="['/nouveauPost']" (click)="isMenuCollapsed = true"><b>Nouveau Post</b></a>
+          <a ngbNavLink [routerLink]="['/nouveauPost']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Nouveau Post</b></a>
         </li>
       </ul>
       <div class="d-flex align-items-center">
-        <a type="button" class="btn btn-link px-3 me-2" [routerLink]="['/login']">
+        <a type="button" class="btn btn-link px-3 me-2" [routerLink]="['/login']" *ngIf="!isLoggedIn">
           Login
         </a>
-        <a type="button" class="btn btn-danger px-3 me-2" [routerLink]="['/logout']">
+        <a type="button" class="btn btn-danger px-3 me-2" [routerLink]="['/logout']" *ngIf="isLoggedIn">
           Logout
         </a>
-        <a type="button" class="btn btn-primary me-3" [routerLink]="['/inscription']">
+        <a type="button" class="btn btn-primary me-3" [routerLink]="['/inscription']" *ngIf="!isLoggedIn">
           Sign up
         </a>
       </div>

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { map, Observable, of } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginService } from './service/loginService/login.service';
+import { LoginState } from './states/login/login.reducer';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +16,10 @@ export class AppComponent {
   isMenuCollapsed = true;
   activePath = 'Accueil';
 
-  constructor() {}
+  isLoggedIn: boolean = false;
+
+  constructor(private store: Store<{ loginStatus: LoginState }>, private loginService: LoginService) {
+    this.loginService.isLoggedIn$.subscribe(x => this.isLoggedIn = x.loggedIn)
+  }
+
 }

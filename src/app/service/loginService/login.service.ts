@@ -1,4 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map, Observable, of } from 'rxjs';
 import { LoginState } from 'src/app/states/login/login.reducer';
@@ -12,7 +13,7 @@ export class LoginService {
 
   isLoggedIn$: Observable<LoginState>;
 
-  constructor(private store: Store<{ loginStatus: LoginState }>) {
+  constructor(private store: Store<{ loginStatus: LoginState }>, private router: Router) {
     this.isLoggedIn$ = this.store.select('loginStatus');
   }
 
@@ -38,6 +39,7 @@ export class LoginService {
       throw('Login failed');
     }
 
+    this.router.navigate(['/']);
     return correspondingUsers[0];
   }
 
