@@ -9,6 +9,8 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { MainGuard } from './guards/main.guard';
 import { LogoutComponent } from './logout/logout.component';
+import { HistoryCalculIMCComponent } from './history-calcul-imc/history-calcul-imc.component';
+import { HistoryExchangeRateComponent } from './history-exchange-rate/history-exchange-rate.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'nouveauPost', component: NewPostComponent, canActivate:[MainGuard] },
   { path: 'posts', component: PostListComponent, canActivate:[MainGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent}
+  { path: 'logout', component: LogoutComponent},
+  { path: 'historyCalculIMC', component: HistoryCalculIMCComponent, canActivate:[MainGuard]},
+  { path: 'historyExchangeRate', component: HistoryExchangeRateComponent, canActivate:[MainGuard]}
 ];
 
 @NgModule({

@@ -1,0 +1,16 @@
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Somme en &dollar;</th>
+        <th scope="col">Somme en &euro;</th>
+        <th scope="col">Somme en &yen;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let calcul of historyExchangeRate$ | async">
+        <td>{{calcul.usd}}</td>
+        <td>{{calcul.euro}}</td>
+        <td>{{calcul.yen}}</td>
+      </tr>
+    </tbody>
+  </table>

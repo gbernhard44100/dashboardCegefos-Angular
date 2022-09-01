@@ -21,6 +21,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { loginReducer } from './states/login/login.reducer';
 import { LoginEffects } from './states/login/login.effects';
 import { LogoutComponent } from './logout/logout.component';
+import { HistoryCalculIMCComponent } from './history-calcul-imc/history-calcul-imc.component';
+import { historyCalculIMCReducer } from './states/historyCalculIMC/historyCalculIMC.reducer';
+import { HistoryCalculIMCEffects } from './states/historyCalculIMC/historyCalculIMC.effects';
+import { HistoryExchangeRateComponent } from './history-exchange-rate/history-exchange-rate.component';
+import { historyExchangeRateReducer } from './states/historyExchangeRate/historyExchangeRate.reducer';
+import { HistoryExchangeRateEffects } from './states/historyExchangeRate/historyExchangeRate.effects';
+import { PostEffects } from './states/post/post.effects';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,9 @@ import { LogoutComponent } from './logout/logout.component';
     PostComponent,
     PostListComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    HistoryCalculIMCComponent,
+    HistoryExchangeRateComponent
   ],
   imports: [
     BrowserModule,
@@ -45,11 +54,18 @@ import { LogoutComponent } from './logout/logout.component';
     StoreModule.forRoot(
       {
         postList: postReducer,
-        loginStatus: loginReducer
+        loginStatus: loginReducer,
+        historyCalculIMC: historyCalculIMCReducer,
+        historyExchangeRate: historyExchangeRateReducer
       } 
     ),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([LoginEffects])
+    EffectsModule.forRoot([
+      LoginEffects,
+      HistoryCalculIMCEffects,
+      HistoryExchangeRateEffects,
+      PostEffects
+    ])
   ],
   providers: [NgbCollapse],
   bootstrap: [AppComponent]

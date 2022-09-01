@@ -1,0 +1,16 @@
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Taille</th>
+      <th scope="col">Poids</th>
+      <th scope="col">IMC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let calcul of historyCalculIMC$ | async">
+      <td>{{calcul.height}}</td>
+      <td>{{calcul.weight}}</td>
+      <td>{{calcul.imc}}</td>
+    </tr>
+  </tbody>
+</table>

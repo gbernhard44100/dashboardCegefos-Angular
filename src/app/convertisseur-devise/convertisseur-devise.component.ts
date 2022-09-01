@@ -42,6 +42,11 @@ export class ConvertisseurDeviseComponent implements OnInit {
           },
           { emitEvent: false }
         );
+        this.convertisseurDeviseService.storeExchangeRateHistoryLocally(
+          this.getRoundAmount(newAmount * data.rates.USD, 2),
+          this.getRoundAmount(newAmount * data.rates.EUR, 2),
+          this.getRoundAmount(newAmount * data.rates.JPY, 0)
+        )
       },
       error: (error: any) => {
         console.log('Erreur lors de la consultation de l\'API Exchange Rate');

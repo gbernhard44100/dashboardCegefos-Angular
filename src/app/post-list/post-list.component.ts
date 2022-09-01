@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { requestLoad } from '../states/post/post.actions';
 import { PostType } from '../types/post/PostType';
 
 @Component({
@@ -13,7 +14,7 @@ export class PostListComponent implements OnInit {
 
   constructor(private store: Store<{ postList: Array<PostType> }>) {
     this.postList$ = this.store.select('postList');
-    console.log(this.postList$);
+    this.store.dispatch(requestLoad());
   }
 
   ngOnInit(): void {}

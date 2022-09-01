@@ -24,7 +24,6 @@ export class SubscriptionService {
     let users = JSON.parse(userListStoredLocally);
     users.push(subscription);
     localStorage.setItem('users', JSON.stringify(users));
-    console.log(localStorage.getItem('users'));
   }
 
   validSubscription(subscription: SubscriptionType) {

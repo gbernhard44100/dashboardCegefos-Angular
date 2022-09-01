@@ -19,10 +19,22 @@ export class ImcService {
   public fatnessResult(height: number, weight: number) : FatnessResultType | undefined {
     let imc: number = this.calculateIMC(height, weight);
 
+    this.storeIMCCalculationHistoryLocally(height, weight, imc);
     return {
       fatnessType: this.fatnessTypeList.find((fatnessType) => imc < fatnessType.maxTresholdIMC),
       imc: imc
     };
+  }
+
+  private storeIMCCalculationHistoryLocally(height: number, weight: number, imc: number) {
+    let imcHistoryStoredLocally = localStorage.getItem('imcHistory')|| '[]';
+    let imcHistory = JSON.parse(imcHistoryStoredLocally);
+    imcHistory.push({
+      height: height,
+      weight: weight,
+      imc: imc
+    });
+    localStorage.setItem('imcHistory', JSON.stringify(imcHistory));
   }
 
   private calculateIMC(height: number, weight: number): number {

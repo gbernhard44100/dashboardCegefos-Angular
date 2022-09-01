@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { createdPost } from '../states/post/post.actions';
 import { PostType } from '../types/post/PostType';
 import { Router } from "@angular/router"
+import { PostService } from '../service/postService/post.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class NewPostComponent implements OnInit {
     content: new FormControl('')
   });
 
-  constructor(private router: Router, private store: Store) { }
+  constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +31,7 @@ export class NewPostComponent implements OnInit {
       loveIts: 0,
       created_at: new Date()
     };
-    this.store.dispatch(createdPost({newPost}));
+    this.postService.savePost(newPost);
 
     this.router.navigate(['/posts']);
   }

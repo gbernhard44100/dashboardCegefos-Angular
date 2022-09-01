@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ExchangeRateApiLatestResponseType } from '../../types/convertisseur-devise/ExchangeRateApiLatestResponseType';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { EnvironmentConfig } from 'src/environmentConfig';
 
 @Injectable({
@@ -24,4 +24,15 @@ export class ConvertisseurDeviseService {
     )
     .pipe();
   }
+
+  storeExchangeRateHistoryLocally(usd: number, euro: number, yen: number) {
+    let exchangeRateHistoryStoredLocally = localStorage.getItem('exchangeRateHistory')|| '[]';
+    let exchangeRateHistory = JSON.parse(exchangeRateHistoryStoredLocally);
+    exchangeRateHistory.push({
+      usd: usd,
+      euro: euro,
+      yen: yen
+    });
+    localStorage.setItem('exchangeRateHistory', JSON.stringify(exchangeRateHistory));
+  }  
 }

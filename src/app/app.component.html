@@ -31,6 +31,12 @@
         <li ngbNavItem="nouveauPost">
           <a ngbNavLink [routerLink]="['/nouveauPost']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Nouveau Post</b></a>
         </li>
+        <li ngbNavItem="historyCalculIMC">
+          <a ngbNavLink [routerLink]="['/historyCalculIMC']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Historique calcul IMC</b></a>
+        </li>
+        <li ngbNavItem="historyExchangeRate">
+          <a ngbNavLink [routerLink]="['/historyExchangeRate']" (click)="isMenuCollapsed = true" *ngIf="isLoggedIn"><b>Historique Taux de change</b></a>
+        </li>
       </ul>
       <div class="d-flex align-items-center">
         <a type="button" class="btn btn-link px-3 me-2" [routerLink]="['/login']" *ngIf="!isLoggedIn">
