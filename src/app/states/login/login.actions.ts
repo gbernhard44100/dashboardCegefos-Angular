@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { LoginType } from 'src/app/types/login/LoginType';
 import { SubscriptionType } from 'src/app/types/subscription/SubscriptionType';
 
 export const submitCredentials = createAction('[Login Component] Submit credentials', props<{email: string, password: string}>());

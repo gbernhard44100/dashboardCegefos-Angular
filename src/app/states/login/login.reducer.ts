@@ -1,4 +1,4 @@
-import { Action, createReducer, createSelector, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import { SubscriptionType } from 'src/app/types/subscription/SubscriptionType';
 import { loginSuccess, logout } from './login.actions';
 
