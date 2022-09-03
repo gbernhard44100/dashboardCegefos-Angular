@@ -10,6 +10,12 @@ export class PostService {
   constructor() { }
 
   savePost(newPost: PostType) {
+    if (newPost.title === '') {
+      throw('Le titre est manquant');
+    } else if (newPost.content === '') {
+      throw('Le texte du post est manquant');
+    }
+    
     let postListStoredLocally = localStorage.getItem('postList')|| '[]';
     let postList = JSON.parse(postListStoredLocally);
     postList.push({
