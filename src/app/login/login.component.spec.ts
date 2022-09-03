@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { historyCalculIMCReducer } from '../states/historyCalculIMC/historyCalculIMC.reducer';
@@ -17,6 +18,7 @@ describe('LoginComponent', () => {
       declarations: [ LoginComponent ],
       imports: [
         RouterTestingModule,
+        ReactiveFormsModule,
         StoreModule.forRoot({
           postList: postReducer,
           loginStatus: loginReducer,

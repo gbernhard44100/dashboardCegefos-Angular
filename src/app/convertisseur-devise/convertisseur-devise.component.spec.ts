@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ConvertisseurDeviseComponent } from './convertisseur-devise.component';
 
@@ -9,7 +10,7 @@ describe('ConvertisseurDeviseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, ReactiveFormsModule],
       declarations: [ ConvertisseurDeviseComponent ]
     })
     .compileComponents();

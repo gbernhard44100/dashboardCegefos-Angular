@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { historyCalculIMCReducer } from './states/historyCalculIMC/historyCalculIMC.reducer';
@@ -13,6 +14,8 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         NgbNavModule,
+        NgbCollapseModule,
+        ReactiveFormsModule,
         RouterTestingModule,
         StoreModule.forRoot({
           postList: postReducer,
