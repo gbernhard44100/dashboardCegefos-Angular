@@ -1,4 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { historyCalculIMCReducer } from '../states/historyCalculIMC/historyCalculIMC.reducer';
+import { historyExchangeRateReducer } from '../states/historyExchangeRate/historyExchangeRate.reducer';
+import { loginReducer } from '../states/login/login.reducer';
+import { postReducer } from '../states/post/post.reducer';
 
 import { HistoryCalculIMCComponent } from './history-calcul-imc.component';
 
@@ -8,7 +14,15 @@ describe('HistoryCalculIMCComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HistoryCalculIMCComponent ]
+      declarations: [ HistoryCalculIMCComponent ],
+      imports: [
+        StoreModule.forRoot({
+          postList: postReducer,
+          loginStatus: loginReducer,
+          historyCalculIMC: historyCalculIMCReducer,
+          historyExchangeRate: historyExchangeRateReducer
+        })
+      ]
     })
     .compileComponents();
 
